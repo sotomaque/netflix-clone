@@ -1,14 +1,12 @@
 import React, { ReactElement } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import HomeCategory from '../../components/HomeCategory';
 
 import { View } from '../../components/Themed';
 import categories from '../../assets/data/categories';
 
 import styles from './styles';
 import { FlatList } from 'react-native';
-
-const firstCategory = categories.items[0];
+import HomeCategory from '../../components/HomeCategory';
 
 const HomeScreen = (): ReactElement => {
   const insets = useSafeAreaInsets();
