@@ -14,6 +14,6 @@ export type HomeParamList = {
   HomeScreen: undefined;
 };
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+export type SearchParamList = {
+  SearchScreen: undefined;
 };
