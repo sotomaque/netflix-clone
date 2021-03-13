@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Image, FlatList } from 'react-native';
+import { FlatList,Image } from 'react-native';
 
 import { Text } from '../Themed';
 import styles from './styles';
