@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react';
-import { Image, FlatList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeCategory from '../../components/HomeCategory';
 
-import { Text, View } from '../../components/Themed';
+import { View } from '../../components/Themed';
 import categories from '../../assets/data/categories';
+
 import styles from './styles';
+import { FlatList } from 'react-native';
 
 const firstCategory = categories.items[0];
 
@@ -20,14 +22,10 @@ const HomeScreen = (): ReactElement => {
         },
       ]}
     >
-      <Text style={styles.title}>Popular on Netflix</Text>
       <FlatList
-        data={firstCategory.movies}
-        renderItem={({ item }) => (
-          <Image source={{ uri: item.poster }} style={styles.image} />
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
+        data={categories.items}
+        renderItem={({ item }) => <HomeCategory category={item} />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
