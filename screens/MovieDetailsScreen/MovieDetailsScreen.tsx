@@ -1,5 +1,11 @@
-import React, { ReactElement } from 'react';
-import { Image, TouchableOpacity, View, FlatList } from 'react-native';
+import React, { useState, ReactElement } from 'react';
+import {
+  Image,
+  TouchableOpacity,
+  View,
+  FlatList,
+  Pressable,
+} from 'react-native';
 import {
   AntDesign,
   MaterialIcons,
@@ -7,17 +13,23 @@ import {
   Feather,
   FontAwesome,
 } from '@expo/vector-icons';
+import { Picker } from '@react-native-picker/picker';
 
 import { Text } from '../../components/Themed';
+import EpisodeItem from '../../components/EpisodeItem';
 import movie from '../../assets/data/movie';
 
 import styles from './styles';
-import EpisodeItem from '../../components/EpisodeItem';
 
 const firstSeason = movie.seasons.items[0];
 const firstEpisode = firstSeason.episodes.items[0];
 
 const MovieDetailsScreen = (): ReactElement => {
+  const [currentSeason, setCurrentSeason] = useState(firstSeason);
+  const seasonNames = movie.seasons.items.map(season => season.name);
+
+  const [showPicker, setShowPicker] = useState(false);
+
   return (
     <View>
       <Image
@@ -25,10 +37,10 @@ const MovieDetailsScreen = (): ReactElement => {
         style={styles.moviePreview}
       />
       <FlatList
+        data={currentSeason.episodes.items}
+        renderItem={({ item }) => <EpisodeItem episode={item} />}
         showsVerticalScrollIndicator={false}
         style={{ marginBottom: 250 }}
-        data={firstSeason.episodes.items}
-        renderItem={({ item }) => <EpisodeItem episode={item} />}
         ListHeaderComponent={
           <View style={{ padding: 12 }}>
             <Text style={styles.title}>{movie.title}</Text>
@@ -127,6 +139,43 @@ const MovieDetailsScreen = (): ReactElement => {
                 <Text style={{ color: 'darkgrey' }}>Share</Text>
               </View>
             </View>
+            <Pressable
+              style={{
+                marginTop: 10,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
+              onPress={() => setShowPicker(!showPicker)}
+            >
+              <Text style={{ fontSize: 15 }}>{currentSeason.name}</Text>
+              {showPicker ? (
+                <Entypo name='triangle-up' size={16} color='white' />
+              ) : (
+                <Entypo name='triangle-down' size={16} color='white' />
+              )}
+            </Pressable>
+            {showPicker && (
+              <Picker
+                selectedValue={currentSeason.name}
+                onValueChange={(itemValue, itemIndex) => {
+                  setCurrentSeason(movie.seasons.items[itemIndex]);
+                  setShowPicker(false);
+                }}
+                style={{
+                  color: 'white',
+                  backgroundColor: 'white',
+                }}
+                dropdownIconColor='white'
+              >
+                {seasonNames.map(seasonName => (
+                  <Picker.Item
+                    label={seasonName}
+                    value={seasonName}
+                    key={seasonName}
+                  />
+                ))}
+              </Picker>
+            )}
           </View>
         }
       />
