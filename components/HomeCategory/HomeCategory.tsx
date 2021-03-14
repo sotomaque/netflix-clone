@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
-import { FlatList, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
+import { FlatList, Image, Pressable } from 'react-native';
 
 import { Text } from '../Themed';
 import styles from './styles';
@@ -8,15 +9,22 @@ interface HomeCategoryProps {
   category: {
     id: string;
     title: string;
-    movies: {
-      id: string;
-      poster: string;
-    }[];
+    movies: MovieType[];
   };
 }
 
+type MovieType = {
+  id: string;
+  poster: string;
+};
+
 const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   const { category } = props;
+  const navigation = useNavigation();
+
+  const handleItemPressed = (movie: MovieType) => {
+    navigation.navigate('MovieDetailsScreen', { id: movie.id });
+  };
 
   return (
     <>
@@ -24,7 +32,9 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
       <FlatList
         data={category.movies}
         renderItem={({ item }) => (
-          <Image source={{ uri: item.poster }} style={styles.image} />
+          <Pressable onPress={() => handleItemPressed(item)}>
+            <Image source={{ uri: item.poster }} style={styles.image} />
+          </Pressable>
         )}
         horizontal
         showsHorizontalScrollIndicator={false}

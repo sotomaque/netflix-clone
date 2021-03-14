@@ -23,7 +23,6 @@ import styles from './styles';
 import VideoPlayer from '../../components/VideoPlayer';
 
 const firstSeason = movie.seasons.items[0];
-const firstEpisode = firstSeason.episodes.items[0];
 
 const MovieDetailsScreen = (): ReactElement => {
   const [currentSeason, setCurrentSeason] = useState(firstSeason);

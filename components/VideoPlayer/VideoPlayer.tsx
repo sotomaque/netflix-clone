@@ -4,7 +4,6 @@ import { Video } from 'expo-av';
 
 import { Episode } from '../../types';
 import styles from './styles';
-import { Playback } from 'expo-av/build/AV';
 
 interface VideoPlayerProps {
   episode: Episode;
@@ -13,7 +12,7 @@ interface VideoPlayerProps {
 const VideoPlayer = (props: VideoPlayerProps): ReactElement => {
   const { episode } = props;
   const [isPlaying, setIsPlaying] = useState(false);
-  const video = useRef<Playback>(null);
+  const video = useRef<Video>(null);
 
   // when video changes, unload prev video and load new one
   useEffect(() => {
