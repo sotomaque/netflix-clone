@@ -4,7 +4,8 @@ import { AntDesign, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import { BottomTabParamList } from '../types';
+import { BottomTabParamList } from './types';
+
 import HomeStackNavigator from './Home';
 import SearchStackNavigator from './Search';
 

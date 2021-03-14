@@ -9,11 +9,3 @@ export type BottomTabParamList = {
   Search: undefined;
   Downloads: undefined;
 };
-
-export type HomeParamList = {
-  HomeScreen: undefined;
-};
-
-export type SearchParamList = {
-  SearchScreen: undefined;
-};

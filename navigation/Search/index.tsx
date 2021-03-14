@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React, { ReactElement } from 'react';
 
 import SerchScreen from '../../screens/SearchScreen';
-import { SearchParamList } from '../../types';
+import { SearchParamList } from './types';
 
 const SearchStack = createStackNavigator<SearchParamList>();
 
