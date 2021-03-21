@@ -10,10 +10,10 @@ const DownloadsScreen = (): ReactElement => {
     <View style={styles.container}>
       <Text style={styles.title}>DownloadsScreen</Text>
       <Pressable
-        style={{ padding: 10, backgroundColor: 'darkGreen' }}
+        style={{ padding: 10, margin: 10, backgroundColor: 'orange' }}
         onPress={() => Auth.signOut()}
       >
-        <Text>Logout</Text>
+        <Text style={{ color: 'black' }}>Logout</Text>
       </Pressable>
     </View>
   );

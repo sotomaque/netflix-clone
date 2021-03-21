@@ -1,0 +1,58 @@
+type Category @model {
+  id: ID!
+  title: String!
+
+  movies: [Movie] @connection(keyName: "byCategory", fields: ["id"])
+  shows: [Show] @connection(keyName: "byCategory", fields: ["id"])
+}
+
+type Movie @model @key(name: "byCategory", fields: ["categoryId"]) {
+  id: ID!
+  title: String!
+  poster: String!
+
+  year: Int
+  plot: String
+  cast: String
+
+  categoryId: ID!
+}
+
+type Show @model @key(name: "byCategory", fields: ["categoryId"]) {
+  id: ID!
+  title: String!
+  poster: String!
+
+  year: Int
+  numberOfSeasons: Int
+  plot: String
+  cast: String
+
+  categoryId: ID!
+
+  seasons: [Season] @connection(keyName: "byShow", fields: ["id"])
+}
+
+type Season @model @key(name: "byShow", fields: ["showId"]) {
+  id: ID!
+  name: String!
+
+  showId: ID!
+  show: Show @connection(fields: ["showId"])
+
+  episodes: [Episode] @connection(keyName: "bySeason", fields: ["id"])
+}
+
+type Episode @model @key(name: "bySeason", fields: ["seasonId"]) {
+  id: ID!
+  title: String!
+  poster: String!
+  duration: String!
+  video: String!
+
+  plot: String
+
+  seasonId: ID!
+  season: Season @connection(fields: ["seasonId"])
+}
+ 

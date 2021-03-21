@@ -1,28 +1,48 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, Image, Pressable } from 'react-native';
 
 import { Text } from '../Themed';
 import styles from './styles';
+import { Category, Movie, Show } from '../../src/models';
+import { DataStore } from '@aws-amplify/datastore';
 
 interface HomeCategoryProps {
-  category: {
-    id: string;
-    title: string;
-    movies: MovieType[];
-  };
+  category: Category;
 }
-
-type MovieType = {
-  id: string;
-  poster: string;
-};
 
 const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   const { category } = props;
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [shows, setShows] = useState<Show[]>([]);
+  const [res, setRes] = useState<Show[] | Movie[] | null>(null);
   const navigation = useNavigation();
 
-  const handleItemPressed = (movie: MovieType) => {
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const res = (await DataStore.query(Movie)).filter(
+        movie => movie.categoryId === category.id
+      );
+      setMovies(res);
+    };
+    const fetchShows = async () => {
+      const res = (await DataStore.query(Show)).filter(
+        show => show.categoryId === category.id
+      );
+      console.log('RES!!', res);
+      setShows(res);
+    };
+
+    fetchMovies();
+    fetchShows();
+  }, []);
+
+  useEffect(() => {
+    const newRes = [...movies, ...shows];
+    setRes(newRes);
+  }, [movies, shows]);
+
+  const handleItemPressed = (movie: Movie) => {
     navigation.navigate('MovieDetailsScreen', { id: movie.id });
   };
 
@@ -30,7 +50,7 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
     <>
       <Text style={styles.title}>{category.title}</Text>
       <FlatList
-        data={category.movies}
+        data={res}
         renderItem={({ item }) => (
           <Pressable onPress={() => handleItemPressed(item)}>
             <Image source={{ uri: item.poster }} style={styles.image} />
