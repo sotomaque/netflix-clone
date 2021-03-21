@@ -10,6 +10,11 @@
       "StackName": "amplify-netflix-dev-113002",
       "StackId": "arn:aws:cloudformation:us-west-2:979146382617:stack/amplify-netflix-dev-113002/79a60e50-8a73-11eb-a8ad-02b936f108eb",
       "AmplifyAppId": "d3bxlozq6q5tge"
+    },
+    "categories": {
+      "auth": {
+        "netflix793efabe": {}
+      }
     }
   }
 }

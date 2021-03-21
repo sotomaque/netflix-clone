@@ -10,6 +10,8 @@ import { BottomTabParamList } from './types';
 
 import HomeStackNavigator from './Home';
 import SearchStackNavigator from './Search';
+import ComingSoonScreen from '../screens/ComingSoonScreen';
+import DownloadsScreen from '../screens/DownloadsScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -32,7 +34,7 @@ const BottomTabNavigator = (): ReactElement => {
       />
       <BottomTab.Screen
         name='Coming Soon'
-        component={SearchStackNavigator}
+        component={ComingSoonScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='video-library' size={24} color={color} />
@@ -50,7 +52,7 @@ const BottomTabNavigator = (): ReactElement => {
       />
       <BottomTab.Screen
         name='Downloads'
-        component={SearchStackNavigator}
+        component={DownloadsScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name='download' size={24} color={color} />
