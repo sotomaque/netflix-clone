@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React, { ReactElement } from 'react';
 
 import HomeScreen from '../../screens/HomeScreen';
-import MovieDetailsScreen from '../../screens/MovieDetailsScreen';
+import MediaDetailsScreen from '../../screens/MediaDetailsScreen';
 import { HomeParamList } from './types';
 
 const HomeStack = createStackNavigator<HomeParamList>();
@@ -16,9 +16,10 @@ const HomeStackNavigator = (): ReactElement => {
         options={{ headerShown: false }}
       />
       <HomeStack.Screen
-        name='MovieDetailsScreen'
-        component={MovieDetailsScreen}
+        name='MediaDetailsScreen'
+        component={MediaDetailsScreen}
         options={{ title: '' }}
+        initialParams={{ id: '', type: '' }}
       />
     </HomeStack.Navigator>
   );

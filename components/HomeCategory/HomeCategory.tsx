@@ -11,6 +11,8 @@ interface HomeCategoryProps {
   category: Category;
 }
 
+type Media = Show | Movie;
+
 const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   const { category } = props;
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -42,8 +44,17 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
     setRes(newRes);
   }, [movies, shows]);
 
-  const handleItemPressed = (movie: Movie) => {
-    navigation.navigate('MovieDetailsScreen', { id: movie.id });
+  const handleItemPressed = (media: Media) => {
+    let mediaType = '';
+    if ('numberOfSeasons' in media) {
+      mediaType = 'Show';
+    } else {
+      mediaType = 'Movie';
+    }
+    navigation.navigate('MediaDetailsScreen', {
+      id: media.id,
+      type: mediaType,
+    });
   };
 
   return (

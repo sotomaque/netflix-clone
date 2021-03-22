@@ -1,4 +1,7 @@
 export type HomeParamList = {
   HomeScreen: undefined;
-  MovieDetailsScreen: undefined;
+  MediaDetailsScreen: {
+    id: string;
+    type: string;
+  };
 };
