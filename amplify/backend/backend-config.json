@@ -27,5 +27,11 @@
         }
       }
     }
+  },
+  "analytics": {
+    "netflix": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

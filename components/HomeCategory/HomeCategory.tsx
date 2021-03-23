@@ -2,6 +2,7 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, Image, Pressable } from 'react-native';
 import { DataStore } from '@aws-amplify/datastore';
+import { Analytics } from 'aws-amplify';
 
 import { Category, Movie, Show } from '../../src/models';
 import { Text } from '../index';
@@ -45,6 +46,11 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   }, [movies, shows]);
 
   const handleItemPressed = (media: Media) => {
+    Analytics.record({
+      name: 'Media Selected',
+      selectedMediaId: media.id,
+      selectedMediaType: 'numberOfSeasons' in media ? 'Show' : 'Movie',
+    });
     navigation.navigate('MediaDetailsScreen', {
       id: media.id,
       type: 'numberOfSeasons' in media ? 'Show' : 'Movie',

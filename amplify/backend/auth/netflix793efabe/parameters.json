@@ -1,6 +1,6 @@
 {
     "identityPoolName": "netflix793efabe_identitypool_793efabe",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "netfli793efabe",
     "userPoolName": "netflix793efabe_userpool_793efabe",
     "autoVerifiedAttributes": [

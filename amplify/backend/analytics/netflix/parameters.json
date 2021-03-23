@@ -1,0 +1,21 @@
+{
+    "appName": "netflix",
+    "roleName": "pinpointLambdaRolee22eb189",
+    "cloudformationPolicyName": "cloudformationPolicye22eb189",
+    "cloudWatchPolicyName": "cloudWatchPolicye22eb189",
+    "pinpointPolicyName": "pinpointPolicye22eb189",
+    "authPolicyName": "pinpoint_amplify_e22eb189",
+    "unauthPolicyName": "pinpoint_amplify_e22eb189",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
