@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Auth } from 'aws-amplify';
 import { Pressable } from 'react-native';
 
-import { Text, View } from '../../components/Themed';
+import { Text, View } from '../../components';
 import styles from './styles';
 
 const DownloadsScreen = (): ReactElement => {

@@ -1,14 +1,12 @@
 import React, { useState, useEffect, ReactElement } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useRoute } from '@react-navigation/core';
 import { RouteProp } from '@react-navigation/native';
 import { DataStore } from 'aws-amplify';
 
 import { Movie, Show } from '../../src/models';
 import { HomeParamList } from '../../navigation/Home/types';
-
-import ShowDetails from '../../components/ShowDetails';
-import MovieDetails from '../../components/MovieDetails';
+import { ShowDetails, MovieDetails } from '../../components';
 
 type MediaDetailsScreenRouteProp = RouteProp<
   HomeParamList,

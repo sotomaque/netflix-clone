@@ -1,19 +1,12 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import { TouchableOpacity, View, Pressable, FlatList } from 'react-native';
-import {
-  AntDesign,
-  MaterialIcons,
-  Entypo,
-  Feather,
-  FontAwesome,
-} from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { DataStore } from 'aws-amplify';
 
 import { Season, Show, Episode } from '../../src/models';
-import { Text } from '../Themed';
-import EpisodeItem from '../EpisodeItem';
-import VideoPlayer from '../VideoPlayer';
+import { EpisodeItem, MediaIconRow, VideoPlayer, Text } from '../index';
+
 import styles from './styles';
 
 type Props = {
@@ -146,57 +139,8 @@ const ListHeaderComponent = (props: ListHeaderProps) => {
       {/* <Text style={styles.subtext}>Creator: {show?.creator}</Text> */}
 
       {/* Icon Row */}
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginTop: 20,
-        }}
-      >
-        {/* Plus */}
-        <View
-          style={{
-            alignItems: 'center',
-            marginHorizontal: 20,
-            marginVertical: 10,
-          }}
-        >
-          <AntDesign name='plus' size={30} color='white' />
-          <Text style={{ color: 'darkgrey' }}>My List</Text>
-        </View>
+      <MediaIconRow />
 
-        {/* Rate */}
-        <View
-          style={{
-            alignItems: 'center',
-            marginHorizontal: 20,
-            marginVertical: 10,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Feather name='thumbs-up' size={24} color='white' />
-            <Text style={{ color: 'darkgrey' }}>Rate</Text>
-          </View>
-        </View>
-
-        {/* Share */}
-        <View
-          style={{
-            alignItems: 'center',
-            marginHorizontal: 20,
-            marginVertical: 10,
-          }}
-        >
-          <FontAwesome name='send-o' size={30} color='white' />
-          <Text style={{ color: 'darkgrey' }}>Share</Text>
-        </View>
-      </View>
       {/* Sesaon List */}
       {seasonNames?.length === 1 ? (
         <View
@@ -225,6 +169,8 @@ const ListHeaderComponent = (props: ListHeaderProps) => {
           )}
         </Pressable>
       )}
+
+      {/* Picker */}
       {showPicker && (
         <Picker
           selectedValue={currentSeason?.name}

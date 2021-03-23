@@ -1,11 +1,11 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, Image, Pressable } from 'react-native';
-
-import { Text } from '../Themed';
-import styles from './styles';
-import { Category, Movie, Show } from '../../src/models';
 import { DataStore } from '@aws-amplify/datastore';
+
+import { Category, Movie, Show } from '../../src/models';
+import { Text } from '../index';
+import styles from './styles';
 
 interface HomeCategoryProps {
   category: Category;
@@ -54,16 +54,18 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   return (
     <>
       <Text style={styles.title}>{category.title}</Text>
-      <FlatList
-        data={res}
-        renderItem={({ item }) => (
-          <Pressable onPress={() => handleItemPressed(item)}>
-            <Image source={{ uri: item.poster }} style={styles.image} />
-          </Pressable>
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
+      {res && (
+        <FlatList
+          data={res}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => handleItemPressed(item)}>
+              <Image source={{ uri: item.poster }} style={styles.image} />
+            </Pressable>
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
+      )}
     </>
   );
 };

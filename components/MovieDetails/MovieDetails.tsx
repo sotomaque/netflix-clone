@@ -1,16 +1,9 @@
 import React, { ReactElement } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import {
-  AntDesign,
-  MaterialIcons,
-  Entypo,
-  Feather,
-  FontAwesome,
-} from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons';
 
 import { Movie } from '../../src/models';
-import { Text } from '../Themed';
-import VideoPlayer from '../VideoPlayer';
+import { Text, VideoPlayer, MediaIconRow } from '../index';
 import styles from './styles';
 
 type Props = {
@@ -67,57 +60,7 @@ const MovieDetails = (props: Props): ReactElement => {
         {/* <Text style={styles.subtext}>Creator: {show?.creator}</Text> */}
 
         {/* Icon Row */}
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 20,
-          }}
-        >
-          {/* Plus */}
-          <View
-            style={{
-              alignItems: 'center',
-              marginHorizontal: 20,
-              marginVertical: 10,
-            }}
-          >
-            <AntDesign name='plus' size={30} color='white' />
-            <Text style={{ color: 'darkgrey' }}>My List</Text>
-          </View>
-
-          {/* Rate */}
-          <View
-            style={{
-              alignItems: 'center',
-              marginHorizontal: 20,
-              marginVertical: 10,
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <Feather name='thumbs-up' size={24} color='white' />
-              <Text style={{ color: 'darkgrey' }}>Rate</Text>
-            </View>
-          </View>
-
-          {/* Share */}
-          <View
-            style={{
-              alignItems: 'center',
-              marginHorizontal: 20,
-              marginVertical: 10,
-            }}
-          >
-            <FontAwesome name='send-o' size={30} color='white' />
-            <Text style={{ color: 'darkgrey' }}>Share</Text>
-          </View>
-        </View>
+        <MediaIconRow />
       </View>
     </View>
   );

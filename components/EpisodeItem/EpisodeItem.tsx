@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react';
 import { View, Image, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import { Text } from '../Themed';
-import styles from './style';
 import { Episode } from '../../src/models';
+import { Text } from '../index';
+import styles from './style';
 
 interface EpisodeItemProps {
   episode: Episode;

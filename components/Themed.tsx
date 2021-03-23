@@ -7,7 +7,7 @@ import useColorScheme from '../hooks/useColorScheme';
 export function useThemeColor(
   props: { light?: string; dark?: string },
   colorName: keyof typeof Colors.light & keyof typeof Colors.dark
-): React.ReactElement {
+): React.ReactElement | string {
   const theme = useColorScheme();
   const colorFromProps = props[theme];
 

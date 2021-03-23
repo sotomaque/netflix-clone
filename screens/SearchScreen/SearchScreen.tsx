@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Text, View } from '../../components/Themed';
+import { Text, View } from '../../components';
 import styles from './styles';
 
 const SearchScreen = (): ReactElement => {

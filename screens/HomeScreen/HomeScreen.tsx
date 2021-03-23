@@ -4,10 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DataStore } from 'aws-amplify';
 
 import { Category } from '../../src/models';
-
-// import categories from '../../assets/data/categories';
-import HomeCategory from '../../components/HomeCategory';
-import { View } from '../../components/Themed';
+import { HomeCategory, View } from '../../components';
 import styles from './styles';
 
 const HomeScreen = (): ReactElement => {
