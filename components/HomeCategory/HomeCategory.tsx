@@ -45,15 +45,9 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   }, [movies, shows]);
 
   const handleItemPressed = (media: Media) => {
-    let mediaType = '';
-    if ('numberOfSeasons' in media) {
-      mediaType = 'Show';
-    } else {
-      mediaType = 'Movie';
-    }
     navigation.navigate('MediaDetailsScreen', {
       id: media.id,
-      type: mediaType,
+      type: 'numberOfSeasons' in media ? 'Show' : 'Movie',
     });
   };
 

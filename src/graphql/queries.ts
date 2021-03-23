@@ -47,9 +47,11 @@ export const getCategory = /* GraphQL */ `
           id
           title
           poster
+          video
           year
           plot
           cast
+          rating
           categoryId
           _version
           _deleted
@@ -69,6 +71,7 @@ export const getCategory = /* GraphQL */ `
           numberOfSeasons
           plot
           cast
+          rating
           categoryId
           _version
           _deleted
@@ -133,9 +136,11 @@ export const syncMovies = /* GraphQL */ `
         id
         title
         poster
+        video
         year
         plot
         cast
+        rating
         categoryId
         _version
         _deleted
@@ -154,9 +159,11 @@ export const getMovie = /* GraphQL */ `
       id
       title
       poster
+      video
       year
       plot
       cast
+      rating
       categoryId
       _version
       _deleted
@@ -177,9 +184,11 @@ export const listMovies = /* GraphQL */ `
         id
         title
         poster
+        video
         year
         plot
         cast
+        rating
         categoryId
         _version
         _deleted
@@ -213,6 +222,7 @@ export const syncShows = /* GraphQL */ `
         numberOfSeasons
         plot
         cast
+        rating
         categoryId
         seasons {
           nextToken
@@ -239,6 +249,7 @@ export const getShow = /* GraphQL */ `
       numberOfSeasons
       plot
       cast
+      rating
       categoryId
       seasons {
         items {
@@ -277,6 +288,7 @@ export const listShows = /* GraphQL */ `
         numberOfSeasons
         plot
         cast
+        rating
         categoryId
         seasons {
           nextToken
@@ -318,6 +330,7 @@ export const syncSeasons = /* GraphQL */ `
           numberOfSeasons
           plot
           cast
+          rating
           categoryId
           _version
           _deleted
@@ -354,6 +367,7 @@ export const getSeason = /* GraphQL */ `
         numberOfSeasons
         plot
         cast
+        rating
         categoryId
         seasons {
           nextToken
@@ -372,6 +386,7 @@ export const getSeason = /* GraphQL */ `
           poster
           duration
           video
+          rating
           plot
           seasonId
           _version
@@ -410,6 +425,7 @@ export const listSeasons = /* GraphQL */ `
           numberOfSeasons
           plot
           cast
+          rating
           categoryId
           _version
           _deleted
@@ -451,6 +467,7 @@ export const syncEpisodes = /* GraphQL */ `
         poster
         duration
         video
+        rating
         plot
         seasonId
         season {
@@ -482,6 +499,7 @@ export const getEpisode = /* GraphQL */ `
       poster
       duration
       video
+      rating
       plot
       seasonId
       season {
@@ -496,6 +514,7 @@ export const getEpisode = /* GraphQL */ `
           numberOfSeasons
           plot
           cast
+          rating
           categoryId
           _version
           _deleted
@@ -534,6 +553,7 @@ export const listEpisodes = /* GraphQL */ `
         poster
         duration
         video
+        rating
         plot
         seasonId
         season {

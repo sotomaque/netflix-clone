@@ -2,13 +2,13 @@ import React, { ReactElement } from 'react';
 import { View, Image, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import { Episode } from '../../types';
 import { Text } from '../Themed';
 import styles from './style';
+import { Episode } from '../../src/models';
 
 interface EpisodeItemProps {
   episode: Episode;
-  onPress: (episode: Episode) => any;
+  onPress: (episode: Episode) => void;
 }
 
 const EpisodeItem = (props: EpisodeItemProps): ReactElement => {

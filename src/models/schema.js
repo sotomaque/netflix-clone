@@ -79,6 +79,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "video": {
+                    "name": "video",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "year": {
                     "name": "year",
                     "isArray": false,
@@ -97,6 +104,13 @@ export const schema = {
                     "name": "cast",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "rating": {
+                    "name": "rating",
+                    "isArray": false,
+                    "type": "Float",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -175,6 +189,13 @@ export const schema = {
                     "name": "cast",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "rating": {
+                    "name": "rating",
+                    "isArray": false,
+                    "type": "Float",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -319,6 +340,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "rating": {
+                    "name": "rating",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "plot": {
                     "name": "plot",
                     "isArray": false,
@@ -361,5 +389,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "eaa8e5f37a38f3199875d015f3aed97d"
+    "version": "62eedf7c97fa6d1a1bea902294748505"
 };

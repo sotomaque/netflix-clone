@@ -2,15 +2,17 @@ import React, { ReactElement, useState, useRef, useEffect } from 'react';
 import { Pressable } from 'react-native';
 import { Video } from 'expo-av';
 
-import { Episode } from '../../types';
+import { Episode, Movie } from '../../src/models';
 import styles from './styles';
 
 interface VideoPlayerProps {
-  episode: Episode;
+  media: Episode | Movie;
 }
 
 const VideoPlayer = (props: VideoPlayerProps): ReactElement => {
-  const { episode } = props;
+  const { media } = props;
+
+  if (!media) return <></>;
   const [isPlaying, setIsPlaying] = useState(false);
   const video = useRef<Video>(null);
 
@@ -19,11 +21,11 @@ const VideoPlayer = (props: VideoPlayerProps): ReactElement => {
     if (!video || !video.current) return;
     (async () => {
       await video?.current?.unloadAsync();
-      await video?.current?.loadAsync({ uri: episode.video }, {}, false);
+      await video?.current?.loadAsync({ uri: media?.video }, {}, false);
     })();
-  }, [episode]);
+  }, [media]);
 
-  const source = { uri: episode.video };
+  const source = { uri: media?.video };
 
   return (
     <Pressable onPress={() => setIsPlaying(!isPlaying)}>
@@ -35,7 +37,7 @@ const VideoPlayer = (props: VideoPlayerProps): ReactElement => {
         resizeMode='contain'
         usePoster
         posterSource={{
-          uri: episode.poster,
+          uri: media?.poster,
         }}
         posterStyle={{
           width: '100%',
