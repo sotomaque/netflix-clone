@@ -269,6 +269,13 @@ export const schema = {
                         "targetName": "showId"
                     }
                 },
+                "number": {
+                    "name": "number",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "episodes": {
                     "name": "episodes",
                     "isArray": true,
@@ -340,6 +347,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "number": {
+                    "name": "number",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "rating": {
                     "name": "rating",
                     "isArray": false,
@@ -389,5 +403,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "62eedf7c97fa6d1a1bea902294748505"
+    "version": "fbb558dfa9314e705218e8e0a0ed532f"
 };

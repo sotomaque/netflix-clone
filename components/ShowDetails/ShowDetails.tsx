@@ -59,9 +59,10 @@ const ShowDetails = (props: Props): ReactElement => {
         setCurrentEpisode(res[0]);
       }
     };
-
     fetchEpisodes();
   }, [currentSeason]);
+
+  console.log('episodes', episodes);
 
   return (
     <View>

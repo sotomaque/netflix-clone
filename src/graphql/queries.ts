@@ -256,6 +256,7 @@ export const getShow = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt
@@ -338,6 +339,7 @@ export const syncSeasons = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt
@@ -379,6 +381,7 @@ export const getSeason = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      number
       episodes {
         items {
           id
@@ -386,6 +389,7 @@ export const getSeason = /* GraphQL */ `
           poster
           duration
           video
+          number
           rating
           plot
           seasonId
@@ -433,6 +437,7 @@ export const listSeasons = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt
@@ -467,6 +472,7 @@ export const syncEpisodes = /* GraphQL */ `
         poster
         duration
         video
+        number
         rating
         plot
         seasonId
@@ -474,6 +480,7 @@ export const syncEpisodes = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt
@@ -499,6 +506,7 @@ export const getEpisode = /* GraphQL */ `
       poster
       duration
       video
+      number
       rating
       plot
       seasonId
@@ -522,6 +530,7 @@ export const getEpisode = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt
@@ -553,6 +562,7 @@ export const listEpisodes = /* GraphQL */ `
         poster
         duration
         video
+        number
         rating
         plot
         seasonId
@@ -560,6 +570,7 @@ export const listEpisodes = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt

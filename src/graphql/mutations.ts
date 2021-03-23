@@ -259,6 +259,7 @@ export const createShow = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt
@@ -296,6 +297,7 @@ export const updateShow = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt
@@ -333,6 +335,7 @@ export const deleteShow = /* GraphQL */ `
           id
           name
           showId
+          number
           _version
           _deleted
           _lastChangedAt
@@ -379,6 +382,7 @@ export const createSeason = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      number
       episodes {
         items {
           id
@@ -386,6 +390,7 @@ export const createSeason = /* GraphQL */ `
           poster
           duration
           video
+          number
           rating
           plot
           seasonId
@@ -435,6 +440,7 @@ export const updateSeason = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      number
       episodes {
         items {
           id
@@ -442,6 +448,7 @@ export const updateSeason = /* GraphQL */ `
           poster
           duration
           video
+          number
           rating
           plot
           seasonId
@@ -491,6 +498,7 @@ export const deleteSeason = /* GraphQL */ `
         createdAt
         updatedAt
       }
+      number
       episodes {
         items {
           id
@@ -498,6 +506,7 @@ export const deleteSeason = /* GraphQL */ `
           poster
           duration
           video
+          number
           rating
           plot
           seasonId
@@ -529,6 +538,7 @@ export const createEpisode = /* GraphQL */ `
       poster
       duration
       video
+      number
       rating
       plot
       seasonId
@@ -552,6 +562,7 @@ export const createEpisode = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt
@@ -581,6 +592,7 @@ export const updateEpisode = /* GraphQL */ `
       poster
       duration
       video
+      number
       rating
       plot
       seasonId
@@ -604,6 +616,7 @@ export const updateEpisode = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt
@@ -633,6 +646,7 @@ export const deleteEpisode = /* GraphQL */ `
       poster
       duration
       video
+      number
       rating
       plot
       seasonId
@@ -656,6 +670,7 @@ export const deleteEpisode = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        number
         episodes {
           nextToken
           startedAt

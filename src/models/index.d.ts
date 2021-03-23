@@ -46,6 +46,7 @@ export declare class Season {
   readonly id: string;
   readonly name: string;
   readonly show?: Show;
+  readonly number?: number;
   readonly episodes?: (Episode | null)[];
   constructor(init: ModelInit<Season>);
   static copyOf(source: Season, mutator: (draft: MutableModel<Season>) => MutableModel<Season> | void): Season;
@@ -57,6 +58,7 @@ export declare class Episode {
   readonly poster: string;
   readonly duration: string;
   readonly video: string;
+  readonly number?: number;
   readonly rating?: number;
   readonly plot?: string;
   readonly season?: Season;

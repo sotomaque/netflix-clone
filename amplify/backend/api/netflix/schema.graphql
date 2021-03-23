@@ -42,6 +42,7 @@ type Season @model @key(name: "byShow", fields: ["showId"]) {
 
   showId: ID!
   show: Show @connection(fields: ["showId"])
+  number: Int
 
   episodes: [Episode] @connection(keyName: "bySeason", fields: ["id"])
 }
@@ -53,6 +54,7 @@ type Episode @model @key(name: "bySeason", fields: ["seasonId"]) {
   duration: String!
   video: String!
 
+  number: Int
   rating: Float
   plot: String
 
