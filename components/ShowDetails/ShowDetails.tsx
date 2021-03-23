@@ -77,6 +77,8 @@ const ShowDetails = (props: Props): ReactElement => {
             show={show}
             currentSeason={currentSeason}
             seasonNames={seasonNames}
+            seasons={seasons}
+            setCurrentSeason={setCurrentSeason}
           />
         }
       />
@@ -88,10 +90,12 @@ type ListHeaderProps = {
   show: Show;
   currentSeason: Season | undefined;
   seasonNames: string[];
+  seasons: Season[];
+  setCurrentSeason: React.Dispatch<React.SetStateAction<Season | undefined>>;
 };
 
 const ListHeaderComponent = (props: ListHeaderProps) => {
-  const { show, currentSeason, seasonNames } = props;
+  const { show, currentSeason, seasonNames, seasons, setCurrentSeason } = props;
   const [showPicker, setShowPicker] = useState(false);
 
   return (
@@ -135,7 +139,9 @@ const ListHeaderComponent = (props: ListHeaderProps) => {
 
       {/* Cast + Creator */}
       <Text style={styles.subtext}>{show.cast}</Text>
-      {/* <Text style={styles.subtext}>Creator: {show?.creator}</Text> */}
+      <Text style={[styles.subtext, { marginTop: 5 }]}>
+        Creator: {show.creator}
+      </Text>
 
       {/* Icon Row */}
       <MediaIconRow />
@@ -174,8 +180,8 @@ const ListHeaderComponent = (props: ListHeaderProps) => {
         <Picker
           selectedValue={currentSeason?.name}
           onValueChange={(itemValue, itemIndex) => {
-            // setCurrentSeason(seasons[itemIndex]);
-            // setShowPicker(false);
+            setCurrentSeason(seasons[itemIndex]);
+            setShowPicker(false);
           }}
           style={{
             color: 'white',

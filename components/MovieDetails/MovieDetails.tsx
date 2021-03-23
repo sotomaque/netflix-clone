@@ -57,7 +57,9 @@ const MovieDetails = (props: Props): ReactElement => {
 
         {/* Cast + Creator */}
         <Text style={styles.subtext}>{movie?.cast}</Text>
-        {/* <Text style={styles.subtext}>Creator: {show?.creator}</Text> */}
+        <Text style={[styles.subtext, { marginTop: 5 }]}>
+          Creator: {movie?.creator}
+        </Text>
 
         {/* Icon Row */}
         <MediaIconRow />
