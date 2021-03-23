@@ -114,6 +114,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "creator": {
+                    "name": "creator",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "categoryId": {
                     "name": "categoryId",
                     "isArray": false,
@@ -196,6 +203,13 @@ export const schema = {
                     "name": "rating",
                     "isArray": false,
                     "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "creator": {
+                    "name": "creator",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -351,6 +365,13 @@ export const schema = {
                     "name": "number",
                     "isArray": false,
                     "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "plot": {
+                    "name": "plot",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -358,13 +379,6 @@ export const schema = {
                     "name": "rating",
                     "isArray": false,
                     "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "plot": {
-                    "name": "plot",
-                    "isArray": false,
-                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -403,5 +417,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "fbb558dfa9314e705218e8e0a0ed532f"
+    "version": "f71436dc852a84cead86126eacdc6c54"
 };

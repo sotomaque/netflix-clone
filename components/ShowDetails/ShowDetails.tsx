@@ -55,14 +55,12 @@ const ShowDetails = (props: Props): ReactElement => {
         e => e?.season?.id === currentSeason.id
       );
       if (res) {
-        setEpisodes(res);
+        setEpisodes(res.sort((a, b) => a?.number - b?.number));
         setCurrentEpisode(res[0]);
       }
     };
     fetchEpisodes();
   }, [currentSeason]);
-
-  console.log('episodes', episodes);
 
   return (
     <View>

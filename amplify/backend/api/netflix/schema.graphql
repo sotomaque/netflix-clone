@@ -16,6 +16,7 @@ type Movie @model @key(name: "byCategory", fields: ["categoryId"]) {
   plot: String
   cast: String
   rating: Float
+  creator: String
 
   categoryId: ID!
 }
@@ -30,6 +31,7 @@ type Show @model @key(name: "byCategory", fields: ["categoryId"]) {
   plot: String
   cast: String
   rating: Float
+  creator: String
 
   categoryId: ID!
 
@@ -53,10 +55,10 @@ type Episode @model @key(name: "bySeason", fields: ["seasonId"]) {
   poster: String!
   duration: String!
   video: String!
+  number: Int!
 
-  number: Int
-  rating: Float
   plot: String
+  rating: Float
 
   seasonId: ID!
   season: Season @connection(fields: ["seasonId"])

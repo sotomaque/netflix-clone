@@ -52,6 +52,7 @@ export const getCategory = /* GraphQL */ `
           plot
           cast
           rating
+          creator
           categoryId
           _version
           _deleted
@@ -72,6 +73,7 @@ export const getCategory = /* GraphQL */ `
           plot
           cast
           rating
+          creator
           categoryId
           _version
           _deleted
@@ -141,6 +143,7 @@ export const syncMovies = /* GraphQL */ `
         plot
         cast
         rating
+        creator
         categoryId
         _version
         _deleted
@@ -164,6 +167,7 @@ export const getMovie = /* GraphQL */ `
       plot
       cast
       rating
+      creator
       categoryId
       _version
       _deleted
@@ -189,6 +193,7 @@ export const listMovies = /* GraphQL */ `
         plot
         cast
         rating
+        creator
         categoryId
         _version
         _deleted
@@ -223,6 +228,7 @@ export const syncShows = /* GraphQL */ `
         plot
         cast
         rating
+        creator
         categoryId
         seasons {
           nextToken
@@ -250,6 +256,7 @@ export const getShow = /* GraphQL */ `
       plot
       cast
       rating
+      creator
       categoryId
       seasons {
         items {
@@ -290,6 +297,7 @@ export const listShows = /* GraphQL */ `
         plot
         cast
         rating
+        creator
         categoryId
         seasons {
           nextToken
@@ -332,6 +340,7 @@ export const syncSeasons = /* GraphQL */ `
           plot
           cast
           rating
+          creator
           categoryId
           _version
           _deleted
@@ -370,6 +379,7 @@ export const getSeason = /* GraphQL */ `
         plot
         cast
         rating
+        creator
         categoryId
         seasons {
           nextToken
@@ -390,8 +400,8 @@ export const getSeason = /* GraphQL */ `
           duration
           video
           number
-          rating
           plot
+          rating
           seasonId
           _version
           _deleted
@@ -430,6 +440,7 @@ export const listSeasons = /* GraphQL */ `
           plot
           cast
           rating
+          creator
           categoryId
           _version
           _deleted
@@ -473,8 +484,8 @@ export const syncEpisodes = /* GraphQL */ `
         duration
         video
         number
-        rating
         plot
+        rating
         seasonId
         season {
           id
@@ -507,8 +518,8 @@ export const getEpisode = /* GraphQL */ `
       duration
       video
       number
-      rating
       plot
+      rating
       seasonId
       season {
         id
@@ -523,6 +534,7 @@ export const getEpisode = /* GraphQL */ `
           plot
           cast
           rating
+          creator
           categoryId
           _version
           _deleted
@@ -563,8 +575,8 @@ export const listEpisodes = /* GraphQL */ `
         duration
         video
         number
-        rating
         plot
+        rating
         seasonId
         season {
           id
