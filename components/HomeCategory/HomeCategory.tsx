@@ -2,10 +2,10 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { FlatList, Image, Pressable } from 'react-native';
 import { DataStore } from '@aws-amplify/datastore';
-import { Analytics } from 'aws-amplify';
+import { Analytics, Storage } from 'aws-amplify';
 
 import { Category, Movie, Show } from '../../src/models';
-import { Text } from '../index';
+import { Text } from '../Themed';
 import styles from './styles';
 
 interface HomeCategoryProps {
@@ -13,6 +13,7 @@ interface HomeCategoryProps {
 }
 
 type Media = Show | Movie;
+type MediaList = Array<Movie | Show>;
 
 const HomeCategory = (props: HomeCategoryProps): ReactElement => {
   const { category } = props;
@@ -50,6 +51,7 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
       name: 'Media Selected',
       selectedMediaId: media.id,
       selectedMediaType: 'numberOfSeasons' in media ? 'Show' : 'Movie',
+      timestamp: new Date().toISOString(),
     });
     navigation.navigate('MediaDetailsScreen', {
       id: media.id,
@@ -57,12 +59,20 @@ const HomeCategory = (props: HomeCategoryProps): ReactElement => {
     });
   };
 
+  Storage.get('house.jpeg')
+    .then(res => {
+      console.log('S3 item: ', res);
+    })
+    .catch(e => {
+      console.error('error with S3 retrieval', e);
+    });
+
   return (
     <>
       <Text style={styles.title}>{category.title}</Text>
       {res && (
         <FlatList
-          data={res}
+          data={res as MediaList}
           renderItem={({ item }) => (
             <Pressable onPress={() => handleItemPressed(item)}>
               <Image source={{ uri: item.poster }} style={styles.image} />

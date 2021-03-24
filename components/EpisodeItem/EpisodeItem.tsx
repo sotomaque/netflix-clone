@@ -3,7 +3,7 @@ import { View, Image, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 import { Episode } from '../../src/models';
-import { Text } from '../index';
+import { Text } from '../Themed';
 import styles from './style';
 
 interface EpisodeItemProps {

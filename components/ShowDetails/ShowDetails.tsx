@@ -5,7 +5,10 @@ import { Picker } from '@react-native-picker/picker';
 import { DataStore } from 'aws-amplify';
 
 import { Season, Show, Episode } from '../../src/models';
-import { EpisodeItem, MediaIconRow, VideoPlayer, Text } from '../index';
+import { Text } from '../Themed';
+import VideoPlayer from '../VideoPlayer';
+import MediaIconRow from '../MediaIconRow';
+import EpisodeItem from '../EpisodeItem';
 
 import styles from './styles';
 

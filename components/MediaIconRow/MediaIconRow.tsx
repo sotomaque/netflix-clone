@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { View } from 'react-native';
 import { AntDesign, Feather, FontAwesome } from '@expo/vector-icons';
 
-import { Text } from '../index';
+import { Text } from '../Themed';
 
 const MediaIconRow = (): ReactElement => {
   return (

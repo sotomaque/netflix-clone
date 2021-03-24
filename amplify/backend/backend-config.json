@@ -33,5 +33,11 @@
       "service": "Pinpoint",
       "providerPlugin": "awscloudformation"
     }
+  },
+  "storage": {
+    "netflixMedia": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

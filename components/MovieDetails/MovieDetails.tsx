@@ -3,7 +3,9 @@ import { TouchableOpacity, View } from 'react-native';
 import { AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons';
 
 import { Movie } from '../../src/models';
-import { Text, VideoPlayer, MediaIconRow } from '../index';
+import { Text } from '../Themed';
+import VideoPlayer from '../VideoPlayer';
+import MediaIconRow from '../MediaIconRow';
 import styles from './styles';
 
 type Props = {
